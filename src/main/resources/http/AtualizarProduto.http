@@ -1,0 +1,9 @@
+PUT http://localhost:8080/api/produtos/atualizar/30
+Content-Type:application/json
+
+{
+  "nome": "Asa de Frango",
+  "descricao": "Carne adequada para churasco",
+  "preco": 39.80,
+  "qtdEstoque": -200
+}
