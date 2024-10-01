@@ -36,3 +36,14 @@ jobs:
         service-id: ${{secrets.id}}
         # A Render API key
         api-key: ${{secrets.key}}
+
+    - name: Deploy na EC2
+      run: |
+          echo "${{secrets.KEY_EC2}}" >private_key && chmod 400 private_key
+          ssh -o StrictHostKeyChecking=no -i "private_key" ubuntu@ec2-44-216-121-10.compute-1.amazonaws.com "
+                  cd /home/ubuntu/springEasy-Render &&
+                  git pull &&
+                  mvn clean package -DskipTests &&
+                  ./executar.sh "
+                  
+          
